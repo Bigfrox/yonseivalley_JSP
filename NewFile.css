@@ -1,0 +1,73 @@
+@charset "EUC-KR";
+
+
+* {
+  box-sizing: border-box;
+}
+
+.intro_wine{
+  background-image: url("./image/wine.png");
+  height: 1000px;
+  width: cover;
+	
+}
+
+.intro_town{
+
+  background-image: url("./image/town.png");
+  height: 800px;
+  width: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	
+}
+
+.bg-text {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.7); 
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+
+body, html {
+  	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	text-decoration: none;
+	border-collapese: collapse;
+	margin:10px;
+	padding:0px;
+	color:black;
+	font-weight: bold;
+	background-color: #FEFEFE;
+	text-align: center;
+  
+}
+
+.header{
+	display:flex;
+	width:1280px;
+	margin:auto;
+	height: 46px;
+}
+
+.nav{
+	display:flex;
+}
+
+.nav > li{
+	margin-left:84px;
+	
+}
