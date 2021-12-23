@@ -31,7 +31,7 @@
 		<div class="bg-text">
 		  <h2>Welcome to the</h2>
 		  <h1 style="font-size:50px">Yonsei Valley</h1>
-		  <p>와인 포도 ㅍㅍ 선제시</p>
+		  <p>와인 포도 파는 마을</p>
 		</div>
 		
 	</div>
@@ -46,18 +46,14 @@
 		String Manage_vineyard = "./manage_vineyard.jsp";
 		String input_data = "./input_data.jsp";
 		String Manage_winery = "./manage_winery.jsp";
+		String special = "./special.jsp";
 		
 %>
 
 <input type="button" value="데이터 입력 기능" onclick="location.href='<%=input_data%>'">
 <input type="button" value="포도농장 관리" onclick="location.href='<%=Manage_vineyard%>'">
 <input type="button" value="와이너리 관리" onclick="location.href='<%=Manage_winery%>'">
-
-	
-		
-	
-	
-
+<input type="button" value="추가 구현" onclick="location.href='<%=special%>'">
 
 
 </body>

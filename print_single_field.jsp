@@ -42,7 +42,7 @@
 	Statement stmt = null;
 	
 	
-	String query = "select * from field where field_ID ='" + field_ID +"';";
+	String query = "select field_ID,location,area,variety,owner,tel_number,vineyard_ID from field natural join vineyard where field_ID ='" + field_ID +"';";
 	
 	
 	try{
@@ -55,9 +55,11 @@
 
 		<table border="1">
 			<th>field ID</th>
-			<th>location</th>
-			<th>area</th>
-			<th>variety</th>
+			<th>위치</th>
+			<th>면적</th>
+			<th>생산품종</th>
+			<th>소유주</th>
+			<th>연락처</th>
 			<th>vineyard_ID</th>
 			
 			
@@ -78,6 +80,8 @@
 			<td><%=result.getNString(4) %></td>
 			
 			<td><%=result.getNString(5) %></td>
+			<td><%=result.getNString(6) %></td>
+			<td><%=result.getNString(7) %></td>
 			
 			
 		</tr>

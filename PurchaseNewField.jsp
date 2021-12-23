@@ -61,13 +61,6 @@
 		update_money = "update vineyard set money = money -"+ price +" where vineyard_ID='" + vineyard_ID + "';";
 %>
 
-
-	<h1>성공!</h1>
-	<p>
-		성공적으로 데이터베이스 <%=dbName %>에서 수정하였습니다.
-	<p class="lead">
-	수행한 SQL Statement : 
-	<%=query %>
 	
 	<%
 		System.out.println("Success");

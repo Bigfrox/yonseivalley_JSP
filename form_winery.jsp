@@ -130,11 +130,11 @@
 		</div>
 		
 		<div>
-		<label>화이트포도 재고량</label> <input name = "inv_white" type="number" />
+		<label>화이트포도 재고량</label> <input name = "inv_white" type="number" value="0" readonly />
 		</div>
 		
 		<div>
-		<label>레드포도 재고량</label> <input name = "inv_red" type="number" />
+		<label>레드포도 재고량</label> <input name = "inv_red" type="number" value="0" readonly/>
 		</div>
 		
 		<div>

@@ -43,7 +43,7 @@
 	
 	// select winery_ID, title, amount from wineproduction natural join winecategory;
 	//String query = "select * from winery natural left outer join wineinventory where winery_ID ='" + winery_ID +"';";
-	String query = "select winery.winery_ID,owner,address,tel_number,inv_white,inv_red,money,grade_ID, vineyard_ID, wineinventory.amount as inv_amount, wineproduction.amount as prod_amount, wineproduction.year as prod_year ,winetrade.amount as trade_amount, winetrade.year as trade_year from winery left join wineinventory on winery.winery_ID = wineinventory.winery_ID left join wineproduction on wineproduction.winery_ID=wineinventory.winery_ID left join winetrade on winetrade.winery_ID=wineinventory.winery_ID where winery.winery_ID ='" + winery_ID + "';";
+	String query = "select winery.winery_ID,owner,address,tel_number,inv_white,inv_red,money,grade_ID, vineyard_ID, wineinventory.amount as wine_amount, wineproduction.amount as prod_amount, wineproduction.year as prod_year ,winetrade.amount as trade_amount, winetrade.year as trade_year from winery left join wineinventory on winery.winery_ID = wineinventory.winery_ID left join wineproduction on wineproduction.winery_ID=wineinventory.winery_ID left join winetrade on winetrade.winery_ID=wineinventory.winery_ID where winery.winery_ID ='" + winery_ID + "';";
 	
 	try{
 		String driver = "org.mariadb.jdbc.Driver";
@@ -63,10 +63,10 @@
 			<th>money</th>
 			<th>grade ID</th>
 			<th>vineyard ID</th>
-			<th>inv_amount</th>
-			<th>prod_amount</th>
+			<th>와인 재고</th>
+			<th>생산량</th>
 			<th>prod_year</th>
-			<th>trade amount</th>
+			<th>거래량</th>
 			<th>trade year</th>
 			
 			
@@ -140,6 +140,16 @@
 		<label>와이너리 ID</label> <input name ="winery_ID" type="text" value="<%=winery_ID%>"  />
 		</div>
 		<button type="submit">출력하기</button>
+</form>
+</div>
+
+<div>
+<h3>포도 구매하기</h3>
+<form action = 'newgrape.jsp' method = 'post'>
+		<div>
+		<label>와이너리 ID</label> <input name ="winery_ID" type="text" value="<%=winery_ID%>"  />
+		</div>
+		<button type="submit">구매하기</button>
 </form>
 </div>
 

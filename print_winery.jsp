@@ -47,7 +47,7 @@
 	
 	//String query = "select * from winery;";
 	
-	String query = "select winery_ID,owner,address,tel_number,sum(amount),inv_white,inv_red from wineproduction natural right outer join winery group by winery_ID;";
+	String query = "select winery.winery_ID,owner,address,tel_number,grade_ID, sum(wineproduction.amount), sum(winetrade.amount) from winery left join wineproduction on winery.winery_ID = wineproduction.winery_ID left join winetrade on winery.winery_ID = winetrade.winery_ID group by winery_ID;";
 	
 	
 	try{
@@ -60,12 +60,12 @@
 
 		<table border="1">
 			<th>winery ID</th>
-			<th>owner</th>
-			<th>address</th>
-			<th>tel_number</th>
+			<th>소유주</th>
+			<th>주소</th>
+			<th>연락처</th>
+			<th>양조장 등급</th>
 			<th>총생산량</th>
-			<th>화이트포도 보유량</th>
-			<th>레드포도 보유량</th>
+			<th>총거래량</th>
 			
 			
 			
@@ -84,7 +84,7 @@
 			
 			<td><%=result.getNString(4) %></td>
 			
-			<td><%=result.getInt(5) %></td>
+			<td><%=result.getNString(5) %></td>
 			<td><%=result.getInt(6) %></td>
 			<td><%=result.getInt(7) %></td>
 			
@@ -120,14 +120,7 @@
 	
 	</div>
 	</div>
-<div>
-	<ul class="nav">
-		<li><a href="./main.jsp">메인화면</a></li>
-		<li><a href="#">ABOUT</a></li>
-		<li><a href="#">SERVICE</a></li>
-		<li><a href="#">CONTACT</a></li>
-	</ul>
-	</div>
+
 	
 </body>
 </html>

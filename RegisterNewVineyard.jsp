@@ -35,9 +35,41 @@
 	int area = 0;
 	String variety = null;	
 	
-	String query = "select * from field where field_ID ='" + field_ID + "';";
+	String query = "select area from field where field_ID = '" + field_ID +"';";
+	String price = null;
+	String insert_vineyard = null;
+
+	try{
+		String driver = "org.mariadb.jdbc.Driver";
+		Class.forName(driver);
+		conn = DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
+		stmt = conn.createStatement();
+		result = stmt.executeQuery(query);
+			
+			
+		while(result.next()){
+			area = result.getInt("area");
+			
+
+		}
+		
+		price = Integer.toString(area*10);
+
 	
-	String insert_vineyard = "INSERT INTO vineyard (vineyard_ID,owner,address,tel_number,inv_white,inv_red,money) values('" + vineyard_ID + "', '" +owner+"','" + address + "','"+tel_number+"', " + inv_white+ "," +inv_red+ ","+money+ ");";
+		insert_vineyard = "INSERT INTO vineyard (vineyard_ID,owner,address,tel_number,inv_white,inv_red,money) values('" + vineyard_ID + "', '" +owner+"','" + address + "','"+tel_number+"', " + inv_white+ "," +inv_red+ ","+money+ " - "+price+");";
+	
+	} catch (SQLException se){
+		se.printStackTrace();
+		
+	} finally {
+		try{
+			stmt.close();
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}
+	}
 	
 	
 	//insert into vineyard
@@ -64,36 +96,8 @@
 		}
 	}
 	
-	//select from field
-	try{
-		String driver = "org.mariadb.jdbc.Driver";
-		Class.forName(driver);
-		conn = DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
-		stmt = conn.createStatement();
-		result = stmt.executeQuery(query);
-		System.out.println("Success@@@@@@@@@@@");
-		
-		
-		location = result.getNString(2);
-		//System.out.println("location : "+location);
-		area = result.getInt(3);
-		variety = result.getNString(4);		
 	
-		
-		System.out.println("Success");
-	} catch (SQLException se){
-		se.printStackTrace();
-		
-	} finally {
-		try{
-			stmt.close();
-			conn.close();
-		}catch(Exception e){
-			e.printStackTrace();
-			
-		}
-	}
-	//System.out.println("[*]location : "+location);
+	
 	String update_query = "update field set vineyard_ID='" + vineyard_ID + "' where field_ID='"+ field_ID +"';";
 	//update field
 		try{
@@ -121,6 +125,7 @@
 	
 
 %>
+
 	
 	<h1>¼º°ø!</h1>
 	<p>

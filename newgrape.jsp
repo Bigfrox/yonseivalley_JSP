@@ -1,3 +1,4 @@
+<%@ page import = "java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -13,6 +14,9 @@
 <title>포도 구매 정보 입력</title>
 </head>
 <body>
+<%
+String winery_ID = request.getParameter("winery_ID");
+%>
 	<div class="wrap">
 <div class="header">
 				<ul class="nav">
@@ -30,7 +34,7 @@
 		  <h3>포도 구매</h3>
 	<form action = 'purchasegrape.jsp' method = 'post'>
 		<div>
-		<label>구매할 와이너리 ID</label> <input name ="winery_ID" type="text" />
+		<label>구매할 와이너리 ID</label> <input name ="winery_ID" type="text" value="<%=winery_ID%>" readonly/>
 		</div>
 		<div>
 		<label>화이트포도 구매량</label> <input name = "inv_white" type="number" />

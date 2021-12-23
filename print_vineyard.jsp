@@ -47,7 +47,7 @@
 	
 	
 	//String query = "select * from vineyard;";
-	String query = " select vineyard_ID,owner,address,tel_number,sum(area),inv_white,inv_red from vineyard natural left outer join field group by vineyard_ID;";
+	String query = "select vineyard.vineyard_ID, owner,address,tel_number,sum(area), sum(grapetrade.amount), sum(grapeproduction.amount) from grapetrade left join field on grapetrade.vineyard_ID = field.vineyard_ID left join grapeproduction on grapeproduction.field_ID=field.field_ID left join vineyard on field.vineyard_ID = vineyard.vineyard_ID group by vineyard.vineyard_ID;";
 	
 	
 	
@@ -64,9 +64,9 @@
 			<th>owner</th>
 			<th>address</th>
 			<th>tel_number</th>
-			<th>sum(area)</th>
-			<th>화이트포도 보유량</th>
-			<th>레드포도 보유량</th>
+			<th>밭 면적 총합</th>
+			<th>총 거래량</th>
+			<th>총 생산량</th>
 			
 		
 <%	
@@ -83,8 +83,10 @@
 			<td><%=result.getNString(4) %></td>
 			
 			<td><%=result.getInt(5) %></td>
+			
 			<td><%=result.getNString(6) %></td>
 			<td><%=result.getNString(7) %></td>
+			
 			
 
 			

@@ -40,7 +40,16 @@
   padding: 20px;
   text-align: center;
 }
+table, td{
+	border: 1px solid gray
+}
 
+table{
+	width:60%;
+	height:100px;
+	margin:auto;
+	text-align:center;
+}
 
 body, html {
   	font-family: 'Noto Sans KR', sans-serif;

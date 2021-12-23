@@ -25,7 +25,7 @@
 	int num_red = Integer.parseInt(request.getParameter("inv_red"));
 	
 	
-	String update_query = "update winery set inv_white = inv_white+"+num_white+", inv_red = inv_red+"+num_red+" where winery_ID='"+winery_ID+"';";
+	String update_query = "update winery set inv_white = inv_white+"+num_white+", inv_red = inv_red+"+num_red+", money = money - "+(num_white+num_red) +" where winery_ID='"+winery_ID+"';";
 	
 	try{
 		String driver = "org.mariadb.jdbc.Driver";
